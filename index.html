@@ -5,19 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第67回 柏稜祭 パンフレット | 函館大学付属柏稜高等学校</title>
 <style>
-      /* 上部ヘッダー */
-    header {
-      background-color: #4682b4;
-      color: #ffffff;
-      padding: 15px 25px;
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Inter, sans-serif;
-      font-size: 22px;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-
-
   :root{
     --sky:#2fa8e0;
     --sun:#f4a11c;
@@ -29,14 +16,33 @@
     --panel:#fff7e8;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",sans-serif;
-    line-height:1.8;
+  
+  /* 1. ページ全体の余白を削除して左右端まで広げる基本設定 */
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+    line-height: 1.8;
   }
+
+  /* 上部ヘッダー（画面横幅いっぱいに指定） */
+  header {
+    width: 100%;
+    background-color: #4682b4;
+    color: #ffffff;
+    padding: 15px 25px;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Inter, sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
   img{max-width:100%;height:auto;}
+
+  /* メインコンテンツ囲み（1000px幅中央寄せ） */
   .wrap{
     max-width:1000px;
     margin:0 auto;
@@ -208,7 +214,7 @@
     width:100%;
     overflow:hidden;
     border-radius:6px;
-    line-height:0; /* 画像下の余白すきまを防止 */
+    line-height:0;
   }
   .map-frame img{
     width:100%;
@@ -224,347 +230,318 @@
     margin-top:10px;
   }
 
-  footer{
-    text-align:center;
-    font-size:13px;
-    color:#999;
-    margin-top:60px;
-    padding-top:20px;
-    border-top:1px solid var(--line);
+  /* ---- フッター（画面の左端から右端まで広げる） ---- */
+  .site-footer {
+    width: 100%;
+    background-color: #4289B9;
+    color: #ffffff;
+    padding: 50px 0 40px 0;
+    box-sizing: border-box;
   }
 
-  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-sizing: border-box;
+  }
+
+  .sitemap-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 20px 0;
+    letter-spacing: 1px;
+  }
+
+  .sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sitemap-list li {
+    margin-bottom: 12px;
+  }
+
+  .sitemap-list a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .sitemap-list a:hover {
+    color: #ffffff;
+    opacity: 1;
+    transform: translateX(4px);
+  }
+
+  .sitemap-list li.active a,
+  .sitemap-list a.active {
+    color: #ffffff;
+    opacity: 1;
+    position: relative;
+  }
+
+  .sitemap-list li.active a::before,
+  .sitemap-list a.active::before {
+    content: "・";
+    position: absolute;
+    left: -14px;
+    color: #ffffff;
+  }
+
+  .footer-brand {
+    text-align: right;
+  }
+
+  .footer-logo {
+    width: 320px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-bottom: 12px;
+  }
+
+  .copyright {
+    font-size: 13px;
+    margin: 0;
+    opacity: 0.9;
+    white-space: nowrap;
+  }
+
+  /* スマホ表示向けレスポンシブ設定 */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 25px;
+      gap: 40px;
+    }
+
+    .footer-brand {
+      text-align: left;
+      width: 100%;
+    }
+
+    .footer-logo {
+      margin-left: 0;
+      width: 240px;
+    }
+
+    .sitemap-list a {
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 <body>
-    <header>柏稜祭パンフレット</header>
 
-<div class="wrap">
+  <!-- 上部ヘッダー -->
+  <header>柏稜祭パンフレット</header>
 
-  <!-- ================= 表紙（画像貼付／PC・スマホで画像切替） ================= -->
- <div class="cover">
-    <div class="cover-frame">
-      <picture>
-        <!-- スマホ幅（600px以下）では top-sp.jpg を表示。ファイルを用意して同じ階層に置いてください -->
-        <source media="(max-width:600px)" srcset="picture/s.top.jpg">
-        <img src="picture/top.jpg" alt="第67回柏稜祭 表紙">
-      </picture>
-    </div>
-  </div>
+  <!-- 中央配置コンテンツエリア -->
+  <div class="wrap">
 
-  <!-- ================= 校長挨拶・生徒会長挨拶／PR① ================= -->
-  <div class="cols">
-    <div class="greeting">
-      <h1 class="page-title">令和８年　第６７回柏稜祭にあたって</h1>
-      <p class="meta">
-        <span class="school">函館大学付属柏稜高等学校</span>
-        校長　扇柳　尚英
-      </p>
-      <p>いよいよ、柏稜高校最大の行事、柏稜祭が始まります。</p>
-      <p>今年度のテーマは「爆裂柏稜～笑えばイイじゃーん～」です。</p>
-      <p>この柏稜祭には、クラス・クラブ・PTA による模擬店、ステージ発表等、生徒の皆さんが企画した様々なイベントが詰まっています。一人ひとりが存分に楽しむと同時に、ご来場くださった方々に柏稜生の本当の姿、本物のエネルギーを感じていただけるよう、心からのおもてなしをしましょう！</p>
-      <p>そして、この柏稜祭がみなさんにとって、最高の思い出、一生忘れることのない本当の思い出になることを祈っています！</p>
-      <p>ご来場の皆様方には、ぜひ、各クラス・クラブの催し物や展示をお楽しみいただき、柏稜生の Real を感じていただければ幸いです。</p>
-
-      <h3>～柏稜祭へようこそ～</h3>
-      <p class="meta">生徒会長　能井　羽琉</p>
-      <p>今年度の柏稜祭にご来場いただき、誠にありがとうございます。生徒会長として、こうして無事に皆さんと柏稜祭を迎えられる事を、大変嬉しく思います。第 67 回柏稜祭のテーマは</p>
-      <div class="theme">「 爆裂柏稜　～笑えばイイじゃーん～ 」</div>
-      <p>です。</p>
-      <p>みなさんは、この文化祭のためにクラスや部活内で何度も話し合い、様々な意見を出し合いながら、試行錯誤を繰り返しながら仲間と模擬店の準備に全力で取り組んできました。私自身その姿を校内のいたる所で目にして、今日という日をとても楽しみに待ち望んでいました。文化祭は、普段の学校生活ではなかなか味わえない特別な日です。準備してきた時間も含めて皆さんにとって忘れられない思い出になれる事を心から願っています。そしてたくさん笑って楽しんで頂きたいです。</p>
-      <p>最後になりますが、柏稜祭を開催するにあたってご協力してくださった先生方、保護者の皆様方、地域の方々、心より感謝を申し上げます。どうぞ柏稜生全員が、頑張って作り上げた柏稜祭をお楽しみください。</p>
-    </div>
-
-    <div>
-      <h2 class="block-title orange">クラス・クラブ模擬店ＰＲ①</h2>
-      <div class="box">
-        <ul class="pr-list">
-          <li><span class="pr-name">＜３年Ａ組＞</span><span class="pr-item">そうめん</span>
-            <p class="pr-desc">今から皆さんは、そうめんです。</p></li>
-          <li><span class="pr-name">＜３年Ｂ組＞</span><span class="pr-item">キング・オブ・バナナ ～原点にして頂点～</span>
-            <p class="pr-desc">甘くおいしいチョコバナナ★ カラフルトッピングで見た目もかわいく、写真映えも!!</p></li>
-          <li><span class="pr-name">＜３年Ｃ組＞</span><span class="pr-item">グランメゾン 3-C</span>
-            <p class="pr-desc">餃子はグランメゾン 3-C にあり。餃子は万里を超える。</p></li>
-          <li><span class="pr-name">＜３年Ｄ組＞</span><span class="pr-item">トロピカルジュース～あの頃の輝きを～</span>
-            <p class="pr-desc">当日、お楽しみがあるよ～</p></li>
-          <li><span class="pr-name">＜２年Ａ組＞</span><span class="pr-item">kobo's キッチン 唐揚げ</span>
-            <p class="pr-desc">めちゃめちゃおいしい物食べたい人カモーン！！</p></li>
-          <li><span class="pr-name">＜２年Ｂ組＞</span><span class="pr-item">まんまるど～なっちゅ♡</span>
-            <p class="pr-desc">某ミ〇ドよりおいしいど～なっちゅです！たべにきてね～！</p></li>
-          <li><span class="pr-name">＜２年Ｃ組＞</span><span class="pr-item">パフェ</span>
-            <p class="pr-desc">自分の好きなフルーツやソースを選択し、オリジナルパフェを作れます！</p></li>
-          <li><span class="pr-name">＜２年Ｄ組＞</span><span class="pr-item">2D わたあめ屋</span>
-            <p class="pr-desc">甘い大きいカラフルなわたあめ</p></li>
-          <li><span class="pr-name">＜１年Ａ組＞</span><span class="pr-item">爆裂スーパーボールすくい</span>
-            <p class="pr-desc">すくえすぎて滅（当社比）<br>スーパーボールすくいをやってるとき、ビジュいいじゃん</p></li>
-          <li><span class="pr-name">＜１年Ｂ組＞</span><span class="pr-item">射的</span>
-            <p class="pr-desc">１年 B 組の縁日は射的です。豪華景品も用意していますので、ぜひご参加ください。</p></li>
-          <li><span class="pr-name">＜１年Ｃ組＞</span><span class="pr-item">お化け屋敷</span>
-            <p class="pr-desc">とある柏稜高校の夜…。何かが起こるといわれている。この校舎で起きる謎は未だに誰にも解き明かされていない…。</p></li>
-          <li><span class="pr-name">＜１年Ｄ組＞</span><span class="pr-item">ストラックアウト</span>
-            <p class="pr-desc">的を倒すのだ。</p></li>
-          <li><span class="pr-name">◇ ＰＴＡ</span><span class="pr-item">野菜市と肉三昧</span>
-            <p class="pr-desc">『今年もやります野菜市！旬の新鮮野菜はもちろん、数量限定のアレが売っているかも！？<br>みんな大好き三色丼も！ぜひＰＴＡブースへお越しください！』</p></li>
-          <li><span class="pr-name">◇ 事務</span><span class="pr-item">さつま揚げとこんにゃくのみそおでん</span>
-            <p class="pr-desc">定番のさつま揚げやこんにゃくに、こだわりの自家製みそだれをたっぷり加え、心を込めて作る自慢のみそおでんです！</p></li>
-        </ul>
-      </div>
-
-      <div class="credit-box">
-        <p>※　今年度の柏稜祭ポスターは、３Ａ　木村　美月さん</p>
-        <p>柏稜祭テーマは、１年Ｃ組のみなさんの作品です。</p>
-        <p>パンフレットは、情報処理部の作品です</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================= PR②・クラブ展示／日程 ================= -->
-  <div class="cols">
-    <div>
-      <h2 class="block-title orange">クラス・クラブ模擬店ＰＲ②</h2>
-      <div class="box">
-        <ul class="pr-list">
-          <li><span class="pr-name">＜ 野球部 ＞</span><span class="pr-item">漢の焼きそば！！！</span>
-            <p class="pr-desc">野球部が焼いた焼きそばいかがでしょうか。出来立てを提供できるように頑張ります。</p></li>
-          <li><span class="pr-name">＜ 女子ハンドボール部 ＞</span><span class="pr-item">ホットサンド</span>
-            <p class="pr-desc">毎年恒例となりました、女子ハンドボール部のホットサンドです！<br>大会参加費支払いのため、皆様たくさん買ってください！！</p></li>
-          <li><span class="pr-name">＜ 女子バスケットボール部 ＞</span><span class="pr-item">たこせん</span>
-            <p class="pr-desc">２年ぶりに復活！！ とっってもおいしい”たこせん”です！<br>待ってまーす♥</p></li>
-          <li><span class="pr-name">＜ サッカー部 ＞</span><span class="pr-item">冷たいジュース</span>
-            <p class="pr-desc">キンキンに冷えた最高の一杯をあなたに。</p></li>
-          <li><span class="pr-name">＜ 男子ハンドボール部 ＞</span><span class="pr-item">フランクフルト</span>
-            <p class="pr-desc">美味しいフランクフルト、食べにきて下さい！</p></li>
-          <li><span class="pr-name">＜ ＥＳＳ部 ＞</span><span class="pr-item">アイスティー、タピオカアイスティー、クッキー・English Cafe</span>
-            <p class="pr-desc">冷たくて美味しいタピオカドリンクを、無料のクッキーと一緒にぜひ味わってみてください。</p></li>
-        </ul>
-      </div>
-
-      <h2 class="block-title red">クラブ展示</h2>
-      <div class="box">
-        <ul class="pr-list">
-          <li><span class="pr-name">＜ 吹奏楽部 ＞</span><span class="pr-item">“柏吹”の演奏を届けます！</span>
-            <p class="pr-desc">皆様に、ステキな演奏とステキな時間を届けられるように頑張ります～(^o^)！</p></li>
-          <li><span class="pr-name">＜ 美術部 ＞</span><span class="pr-item">作品展示</span>
-            <p class="pr-desc">高文連で受賞した作品と日々の活動を描いている作品を展示しています。来場をお待ちしています。</p></li>
-          <li><span class="pr-name">＜ 理科研究部 ＞</span><span class="pr-item">アイスクリーム体験教室</span></li>
-        </ul>
+    <!-- 表紙 -->
+    <div class="cover">
+      <div class="cover-frame">
+        <picture>
+          <source media="(max-width:600px)" srcset="picture/s.top.jpg">
+          <img src="picture/top.jpg" alt="第67回柏稜祭 表紙">
+        </picture>
       </div>
     </div>
 
-    <div>
-      <h2 class="block-title purple">第６７回　柏稜祭　日程</h2>
-      <div class="box">
-        <div class="day-card">
-          <h4>９月２８日（金）＜９：００～１２：４０終了予定＞</h4>
-          <ul>
-            <li>★ 吹奏楽部による演奏</li>
-            <li>★ 実行委員会企画</li>
-            <li>★ パフォーマンスショー（ダンス、カラオケ）</li>
+    <!-- 挨拶 / PR① -->
+    <div class="cols">
+      <div class="greeting">
+        <h1 class="page-title">令和８年 第６７回柏稜祭にあたって</h1>
+        <p class="meta">
+          <span class="school">函館大学付属柏稜高等学校</span>
+          校長 扇柳 尚英
+        </p>
+        <p>いよいよ、柏稜高校最大の行事、柏稜祭が始まります。</p>
+        <p>今年度のテーマは「爆裂柏稜～笑えばイイじゃーん～」です。</p>
+        <p>この柏稜祭には、クラス・クラブ・PTA による模擬店、ステージ発表等、生徒の皆さんが企画した様々なイベントが詰まっています。一人ひとりが存分に楽しむと同時に、ご来場くださった方々に柏稜生の本当の姿、本物のエネルギーを感じていただけるよう、心からのおもてなしをしましょう！</p>
+        <p>そして、この柏稜祭がみなさんにとって、最高の思い出、一生忘れることのない本当の思い出になることを祈っています！</p>
+        <p>ご来場の皆様方には、ぜひ、各クラス・クラブの催し物や展示をお楽しみいただき、柏稜生の Real を感じていただければ幸いです。</p>
+
+        <h3>～柏稜祭へようこそ～</h3>
+        <p class="meta">生徒会長 能井 羽琉</p>
+        <p>今年度の柏稜祭にご来場いただき、誠にありがとうございます。生徒会長として、こうして無事に皆さんと柏稜祭を迎えられる事を、大変嬉しく思います。第 67 回柏稜祭のテーマは</p>
+        <div class="theme">「 爆裂柏稜 ～笑えばイイじゃーん～ 」</div>
+        <p>です。</p>
+        <p>みなさんは、この文化祭のためにクラスや部活内で何度も話し合い、様々な意見を出し合いながら、試行錯誤を繰り返しながら仲間と模擬店の準備に全力で取り組んできました。私自身その姿を校内のいたる所で目にして、今日という日をとても楽しみに待ち望んでいました。文化祭は、普段の学校生活ではなかなか味わえない特別な日です。準備してきた時間も含めて皆さんにとって忘れられない思い出になれる事を心から願っています。そしてたくさん笑って楽しんで頂きたいです。</p>
+        <p>最後になりますが、柏稜祭を開催するにあたってご協力してくださった先生方、保護者の皆様方、地域の方々、心より感謝を申し上げます。どうぞ柏稜生全員が、頑張って作り上げた柏稜祭をお楽しみください。</p>
+      </div>
+
+      <div>
+        <h2 class="block-title orange">クラス・クラブ模擬店ＰＲ①</h2>
+        <div class="box">
+          <ul class="pr-list">
+            <li><span class="pr-name">＜３年Ａ組＞</span><span class="pr-item">そうめん</span>
+              <p class="pr-desc">今から皆さんは、そうめんです。</p></li>
+            <li><span class="pr-name">＜３年Ｂ組＞</span><span class="pr-item">キング・オブ・バナナ ～原点にして頂点～</span>
+              <p class="pr-desc">甘くおいしいチョコバナナ★ カラフルトッピングで見た目もかわいく、写真映えも!!</p></li>
+            <li><span class="pr-name">＜３年Ｃ組＞</span><span class="pr-item">グランメゾン 3-C</span>
+              <p class="pr-desc">餃子はグランメゾン 3-C にあり。餃子は万里を超える。</p></li>
+            <li><span class="pr-name">＜３年Ｄ組＞</span><span class="pr-item">トロピカルジュース～あの頃の輝きを～</span>
+              <p class="pr-desc">当日、お楽しみがあるよ～</p></li>
+            <li><span class="pr-name">＜２年Ａ組＞</span><span class="pr-item">kobo's キッチン 唐揚げ</span>
+              <p class="pr-desc">めちゃめちゃおいしい物食べたい人カモーン！！</p></li>
+            <li><span class="pr-name">＜２年Ｂ組＞</span><span class="pr-item">まんまるど～なっちゅ♡</span>
+              <p class="pr-desc">某ミ〇ドよりおいしいど～なっちゅです！たべにきてね～！</p></li>
+            <li><span class="pr-name">＜２年Ｃ組＞</span><span class="pr-item">パフェ</span>
+              <p class="pr-desc">自分の好きなフルーツやソースを選択し、オリジナルパフェを作れます！</p></li>
+            <li><span class="pr-name">＜２年Ｄ組＞</span><span class="pr-item">2D わたあめ屋</span>
+              <p class="pr-desc">甘い大きいカラフルなわたあめ</p></li>
+            <li><span class="pr-name">＜１年Ａ組＞</span><span class="pr-item">爆裂スーパーボールすくい</span>
+              <p class="pr-desc">すくえすぎて滅（当社比）<br>スーパーボールすくいをやってるとき、ビジュいいじゃん</p></li>
+            <li><span class="pr-name">＜１年Ｂ組＞</span><span class="pr-item">射的</span>
+              <p class="pr-desc">１年 B 組の縁日は射的です。豪華景品も用意していますので、ぜひご参加ください。</p></li>
+            <li><span class="pr-name">＜１年Ｃ組＞</span><span class="pr-item">お化け屋敷</span>
+              <p class="pr-desc">とある柏稜高校の夜…。何かが起こるといわれている。この校舎で起きる謎は未だに誰にも解き明かされていない…。</p></li>
+            <li><span class="pr-name">＜１年Ｄ組＞</span><span class="pr-item">ストラックアウト</span>
+              <p class="pr-desc">的を倒すのだ。</p></li>
+            <li><span class="pr-name">◇ ＰＴＡ</span><span class="pr-item">野菜市と肉三昧</span>
+              <p class="pr-desc">『今年もやります野菜市！旬の新鮮野菜はもちろん、数量限定のアレが売っているかも！？<br>みんな大好き三色丼も！ぜひＰＴＡブースへお越しください！』</p></li>
+            <li><span class="pr-name">◇ 事務</span><span class="pr-item">さつま揚げとこんにゃくのみそおでん</span>
+              <p class="pr-desc">定番のさつま揚げやこんにゃくに、こだわりの自家製みそだれをたっぷり加え、心を込めて作る自慢のみそおでんです！</p></li>
           </ul>
-          <p class="note">※ 一般の方の入場はできません</p>
         </div>
 
-        <div class="day-card">
-          <h4>９月２９日（日）＜９：００～１５：００＞</h4>
-          <p style="margin:0 0 8px;font-weight:bold;">□一般公開</p>
-          <ul class="info-list">
-            <li><span class="cat">展示・発表</span>
-              <ul class="sub-list">
-                <li>学級旗 展示　　校舎 垂れ幕</li>
-                <li>部活動戦績・ユニフォーム展示室　　３階 第２講義室</li>
-                <li>理科研究部 アイスクリーム体験教室　　２階 第１講義室</li>
-                <li>美術部 作品展示　　３階 第３講義室</li>
-              </ul>
-            </li>
-            <li><span class="cat">■ 学校紹介</span>２階　自習室</li>
-            <li><span class="cat">■ 模擬店</span>第１・２体育館／２、３階の各教室</li>
-            <li><span class="cat">■ PTAによる</span>
-              <ul class="sub-list">
-                <li>野菜市　　第１体育館</li>
-                <li>三色丼</li>
-              </ul>
-            </li>
-            <li><span class="cat">■ 事務による</span>
-              <ul class="sub-list">
-                <li>さつま揚げとこんにゃくのみそおでん　　事務室前</li>
-              </ul>
-            </li>
-            <li><span class="cat">■ 吹奏楽部による演奏</span></li>
-            <li><span class="cat">■ ステージ発表</span>第１体育館</li>
+        <div class="credit-box">
+          <p>※ 今年度の柏稜祭ポスターは、３Ａ 木村 美月さん</p>
+          <p>柏稜祭テーマは、１年Ｃ組のみなさんの作品です。</p>
+          <p>パンフレットは、情報処理部の作品です</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PR② / 日程 -->
+    <div class="cols">
+      <div>
+        <h2 class="block-title orange">クラス・クラブ模擬店ＰＲ②</h2>
+        <div class="box">
+          <ul class="pr-list">
+            <li><span class="pr-name">＜ 野球部 ＞</span><span class="pr-item">漢の焼きそば！！！</span>
+              <p class="pr-desc">野球部が焼いた焼きそばいかがでしょうか。出来立てを提供できるように頑張ります。</p></li>
+            <li><span class="pr-name">＜ 女子ハンドボール部 ＞</span><span class="pr-item">ホットサンド</span>
+              <p class="pr-desc">毎年恒例となりました、女子ハンドボール部のホットサンドです！<br>大会参加費支払いのため、皆様たくさん買ってください！！</p></li>
+            <li><span class="pr-name">＜ 女子バスケットボール部 ＞</span><span class="pr-item">たこせん</span>
+              <p class="pr-desc">２年ぶりに復活！！ とっってもおいしい”たこせん”です！<br>待ってまーす♥</p></li>
+            <li><span class="pr-name">＜ サッカー部 ＞</span><span class="pr-item">冷たいジュース</span>
+              <p class="pr-desc">キンキンに冷えた最高の一杯をあなたに。</p></li>
+            <li><span class="pr-name">＜ 男子ハンドボール部 ＞</span><span class="pr-item">フランクフルト</span>
+              <p class="pr-desc">美味しいフランクフルト、食べにきて下さい！</p></li>
+            <li><span class="pr-name">＜ ＥＳＳ部 ＞</span><span class="pr-item">アイスティー、タピオカアイスティー、クッキー・English Cafe</span>
+              <p class="pr-desc">冷たくて美味しいタピオカドリンクを、無料のクッキーと一緒にぜひ味わってみてください。</p></li>
           </ul>
-          <div class="honbu">
-            ※　柏稜祭実行本部　２階　生徒会室（案内・迷子センター・学校紹介コーナー）<br>
-            何かございましたら本部へお越しください
+        </div>
+
+        <h2 class="block-title red">クラブ展示</h2>
+        <div class="box">
+          <ul class="pr-list">
+            <li><span class="pr-name">＜ 吹奏楽部 ＞</span><span class="pr-item">“柏吹”の演奏を届けます！</span>
+              <p class="pr-desc">皆様に、ステキな演奏とステキな時間を届けられるように頑張ります～(^o^)！</p></li>
+            <li><span class="pr-name">＜ 美術部 ＞</span><span class="pr-item">作品展示</span>
+              <p class="pr-desc">高文連で受賞した作品と日々の活動を描いている作品を展示しています。来場をお待ちしています。</p></li>
+            <li><span class="pr-name">＜ 理科研究部 ＞</span><span class="pr-item">アイスクリーム体験教室</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="block-title purple">第６７回 柏稜祭 日程</h2>
+        <div class="box">
+          <div class="day-card">
+            <h4>９月２８日（金）＜９：００～１２：４０終了予定＞</h4>
+            <ul>
+              <li>★ 吹奏楽部による演奏</li>
+              <li>★ 実行委員会企画</li>
+              <li>★ パフォーマンスショー（ダンス、カラオケ）</li>
+            </ul>
+            <p class="note">※ 一般の方の入場はできません</p>
+          </div>
+
+          <div class="day-card">
+            <h4>９月２９日（日）＜９：００～１５：００＞</h4>
+            <p style="margin:0 0 8px;font-weight:bold;">□一般公開</p>
+            <ul class="info-list">
+              <li><span class="cat">展示・発表</span>
+                <ul class="sub-list">
+                  <li>学級旗 展示  校舎 垂れ幕</li>
+                  <li>部活動戦績・ユニフォーム展示室  ３階 第２講義室</li>
+                  <li>理科研究部 アイスクリーム体験教室  ２階 第１講義室</li>
+                  <li>美術部 作品展示  ３階 第３講義室</li>
+                </ul>
+              </li>
+              <li><span class="cat">■ 学校紹介</span>２階 自習室</li>
+              <li><span class="cat">■ 模擬店</span>第１・２体育館／２、３階の各教室</li>
+              <li><span class="cat">■ PTAによる</span>
+                <ul class="sub-list">
+                  <li>野菜市  第１体育館</li>
+                  <li>三色丼</li>
+                </ul>
+              </li>
+              <li><span class="cat">■ 事務による</span>
+                <ul class="sub-list">
+                  <li>さつま揚げとこんにゃくのみそおでん  事務室前</li>
+                </ul>
+              </li>
+              <li><span class="cat">■ 吹奏楽部による演奏</span></li>
+              <li><span class="cat">■ ステージ発表</span>第１体育館</li>
+            </ul>
+            <div class="honbu">
+              ※ 柏稜祭実行本部 ２階 生徒会室（案内・迷子センター・学校紹介コーナー）<br>
+              何かございましたら本部へお越しください
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- ================= 校内マップ（画像貼付／PC・スマホで画像切替） ================= -->
-  <h1 class="page-title">R8. 柏稜祭　校舎見取図</h1>
-  <p class="caution">※4階は閉鎖しています。</p>
-  <div class="map-frame">
-    <picture>
-      <!-- スマホ幅（600px以下）では map-sp.jpg を表示。ファイルを用意して同じ階層に置いてください -->
-      <source media="(max-width:600px)" srcset="picture/map.jpg">
-      <img src="picture/map.jpg" alt="第67回柏稜祭 校舎見取図">
-    </picture>
-  </div>
-
-  <!-- 全幅フッター -->
-<footer class="site-footer">
-  <div class="footer-container">
-    
-    <!-- 左側：サイトマップ -->
-    <div class="footer-sitemap">
-      <h2 class="sitemap-title">サイトマップ</h2>
-      <ul class="sitemap-list">
-        <li class="active"><a href="index.html">各クラスの混雑状況</a></li>
-        <li><a href="class_site.html">各クラスのwebサイト</a></li>
-        <li><a href="mapver1.2.html">学校内マップ</a></li>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsgWsuddum8mx66uCt6mQHSYzfUMkVpnWFUYlIgNvPAjjxsQ/viewform">アンケート</a></li>
-      </ul>
+    <!-- 校内マップ -->
+    <h1 class="page-title">R8. 柏稜祭 校舎見取図</h1>
+    <p class="caution">※4階は閉鎖しています。</p>
+    <div class="map-frame">
+      <picture>
+        <source media="(max-width:600px)" srcset="picture/map.jpg">
+        <img src="picture/map.jpg" alt="第67回柏稜祭 校舎見取図">
+      </picture>
     </div>
 
-    <!-- 右側：ロゴ画像と著作権表記 -->
-    <div class="footer-brand">
-      <!-- ⚠️ srcの画像パスはご自身の画像ファイル名に書き換えてください -->
-      <img src="picture/img_logo_top_en.svg" alt="HAKURYO" class="footer-logo">
-      <p class="copyright">© 全ての画像の私版・２次利用をお断りします</p>
+  </div> <!-- / .wrap (ここまでが幅1000px制限のエリア) -->
+
+  <!-- 全幅フッター（.wrapの外に出すことで画面左右いっぱいに広がる） -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <!-- 左側：サイトマップ -->
+      <div class="footer-sitemap">
+        <h2 class="sitemap-title">サイトマップ</h2>
+        <ul class="sitemap-list">
+          <li class="active"><a href="">各クラスの混雑状況</a></li>
+          <li><a href="class_site.html">各クラスのwebサイト</a></li>
+          <li><a href="mapver1.2.html">学校内マップ</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsgWsuddum8mx66uCt6mQHSYzfUMkVpnWFUYlIgNvPAjjxsQ/viewform">アンケート</a></li>
+        </ul>
+      </div>
+
+      <!-- 右側：ロゴ画像と著作権表記 -->
+      <div class="footer-brand">
+        <img src="picture/img_logo_top_en.svg" alt="HAKURYO" class="footer-logo">
+        <p class="copyright">© 全ての画像の私版・２次利用をお断りします</p>
+      </div>
+
     </div>
+  </footer>
 
-  </div>
-</footer>
-
-<style>
-  /* 1. ページ全体の余白を消して左右端まで広げるための必須設定 */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-
-/* 2. フッター外枠（背景色を画面の左端から右端まで100%広げる） */
-.site-footer {
-  width: 100%;
-  background-color: #4289B9; /* 画像のきれいな青色 */
-  color: #ffffff;
-  padding: 50px 0 40px 0;
-  box-sizing: border-box;
-}
-
-/* 3. 内側のレイアウト領域（左右の配置バランス調整） */
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end; /* 下揃えで配置 */
-  box-sizing: border-box;
-}
-
-/* 4. サイトマップエリア */
-.sitemap-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 0 0 20px 0;
-  letter-spacing: 1px;
-}
-/* サイトマップのリスト表示設定 */
-.sitemap-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sitemap-list li {
-  margin-bottom: 12px;
-}
-
-/* 通常（未選択）のリンク表示：少し色を薄くする */
-.sitemap-list a {
-  color: rgba(255, 255, 255, 0.65); /* 未選択ページは少し透けさせて薄く表示 */
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-  display: inline-block;
-  
-  /* 💡 フェードアニメーションの設定（0.25秒かけて滑らかに色を変化させる） */
-  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* マウスカーソルが重なったとき（ホバー時）：白くして少し右に動かすフェード演出 */
-.sitemap-list a:hover {
-  color: #ffffff; /* くっきりした白に変化 */
-  opacity: 1;
-  transform: translateX(4px); /* 4pxだけ右に滑らかにズレる動きを追加 */
-}
-
-/* 🌟 今開いているページ（カレントページ）の表示：最初からクッキリした白 */
-.sitemap-list li.active a,
-.sitemap-list a.active {
-  color: #ffffff;
-  opacity: 1;
-  position: relative;
-}
-
-/* （任意）今開いているページの横に小さな点（インジケーター）をつける演出 */
-.sitemap-list li.active a::before,
-.sitemap-list a.active::before {
-  content: "・";
-  position: absolute;
-  left: -14px;
-  color: #ffffff;
-}
-
-/* 5. 右側ブランド・ロゴエリア */
-.footer-brand {
-  text-align: right;
-}
-
-/* HAKURYO画像ロゴ */
-.footer-logo {
-  width: 320px; /* ロゴ画像の表示幅（必要に応じて調整してください） */
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-bottom: 12px;
-}
-
-.copyright {
-  font-size: 13px;
-  margin: 0;
-  opacity: 0.9;
-  white-space: nowrap;
-}
-
-/* 6. スマホ表示（画面幅が狭い端末）への最適化 */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 25px;
-    gap: 40px;
-  }
-
-  .footer-brand {
-    text-align: left;
-    width: 100%;
-  }
-
-  .footer-logo {
-    margin-left: 0;
-    width: 240px; /* スマホ用に少し小さく調整 */
-  }
-
-  .sitemap-list a {
-    font-size: 16px;
-  }
-}
-</style>
-
-</div>
 </body>
 </html>
