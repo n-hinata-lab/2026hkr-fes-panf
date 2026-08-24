@@ -338,12 +338,110 @@
       font-size: 16px;
     }
   }
+
+  /* ヘッダー全体（右上配置のレイアウトベース） */
+.site-header {
+  width: 100%;
+  background-color: #4289B9; /* 背景色（青系） */
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* 左右に要素を振り分け */
+  align-items: center;
+}
+
+/* 🌟 ガラスデザインボタンの本体 */
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px; /* アイコンと文字の間隔 */
+  padding: 8px 24px 8px 10px; /* 内側の余白 */
+  
+  /* ガラスモーフィズム（すりガラス）演出 */
+  background: rgba(255, 255, 255, 0.22); /* 白の透明度 */
+  backdrop-filter: blur(8px); /* 背面のぼかし効果 */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35); /* 薄い白枠 */
+  
+  /* 完全なカプセル型の角丸 */
+  border-radius: 50px;
+  
+  /* テキスト装飾 */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  
+  /* アニメーション */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* マウスホバー時のフェード・浮揚感演出 */
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌟 左側アイコンの背景丸枠 */
+.btn-icon-wrapper {
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.25); /* アイコン周りの半透明枠 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+/* アイコン画像自体のサイズ調整 */
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ボタン内のテキスト */
+.btn-text {
+  white-space: nowrap;
+}
+
 </style>
 </head>
 <body>
 
   <!-- 上部ヘッダー -->
-  <header>柏稜祭パンフレット</header>
+
+    <header class="site-header">
+  <div class="header-container">
+    
+    <!-- 左側：ヘッダーロゴやタイトル等（必要に応じて記述） -->
+    <div class="header-logo">
+      柏稜祭パンフレット
+    </div>
+
+    <!-- 🌟 右上：ガラスデザインボタン -->
+    <a href="https://n-hinata-lab.github.io/hkr-fes/" class="glass-btn">
+      <!-- アイコン領域（画像パスを変更可能） -->
+      <span class="btn-icon-wrapper">
+        <img src="picture/change.svg" alt="" class="btn-icon">
+      </span>
+      <!-- テキスト領域（自由に変更可能） -->
+      <span class="btn-text">総合情報サイト</span>
+    </a>
+
+  </div>
+</header>
+  </header>
 
   <!-- 中央配置コンテンツエリア -->
   <div class="wrap">
@@ -527,9 +625,9 @@
       <div class="footer-sitemap">
         <h2 class="sitemap-title">サイトマップ</h2>
         <ul class="sitemap-list">
-          <li class="active"><a href="">各クラスの混雑状況</a></li>
-          <li><a href="class_site.html">各クラスのwebサイト</a></li>
-          <li><a href="mapver1.2.html">学校内マップ</a></li>
+          <li><a href="https://hkr-fes.n-hinata-lab.workers.dev/">各クラスの混雑状況</a></li>
+          <li><a href="https://hkr-fes.n-hinata-lab.workers.dev/class_site">各クラスのwebサイト</a></li>
+          <li><a href="https://hkr-fes.n-hinata-lab.workers.dev/mapver1.2">学校内マップ</a></li>
           <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsgWsuddum8mx66uCt6mQHSYzfUMkVpnWFUYlIgNvPAjjxsQ/viewform">アンケート</a></li>
         </ul>
       </div>
